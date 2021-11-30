@@ -9,9 +9,13 @@ import time
 
 start_time = time.time()
 
+LOGIN_LINES = open("LoginInfo", 'r').readlines()
+for i, line in enumerate(LOGIN_LINES):
+    LOGIN_LINES[i] = line.strip()
+
 #Login info
-usernameString = "eric.blois@mail.mcgill.ca"
-passwordString = "Lakeview291"
+usernameString = LOGIN_LINES[0]
+passwordString = LOGIN_LINES[1]
 
 #Course Selection (Summer = 202005, Fall = 202009, Winter = 202101)
 course_term = "202005"

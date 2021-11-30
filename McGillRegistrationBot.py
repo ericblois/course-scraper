@@ -26,9 +26,13 @@ class McGillRegistrationBot:
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
         self.driver.implicitly_wait(self.waitTime)
 
+        LOGIN_LINES = open("LoginInfo", 'r').readlines()
+        for i, line in enumerate(LOGIN_LINES):
+            LOGIN_LINES[i] = line.strip()
+
         # Login info
-        self.usernameString = "eric.blois@mail.mcgill.ca"
-        self.passwordString = "Lakeview291"
+        self.usernameString = LOGIN_LINES[0]
+        self.passwordString = LOGIN_LINES[1]
 
         self.courses = list(courses)
 
